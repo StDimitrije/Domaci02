@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filter = et_filter.getText().toString();
+                filter = s.toString();
                 mainViewModel.setFilter(filter);
             }
 
@@ -109,8 +109,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String s = et_input.getText().toString();
-                mUsers.add(0, new User(Util.generateId(),s));
-                mainViewModel.setUsers(mUsers);
+//                mUsers.add(0, new User(Util.generateId(),s));
+                User user = new User(Util.generateId(),s);
+                mainViewModel.addUsers(user);
+
                 et_input.getText().clear();
             }
         });

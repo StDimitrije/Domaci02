@@ -1,10 +1,8 @@
 package com.example.domaci02;
 
-import android.content.Intent;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -29,9 +27,14 @@ public class MainViewModel extends ViewModel {
         return userLiveData;
     }
 
-    public void setUsers(List<User> users){
+    public void setValue(List<User> users){
 
         this.userLiveData.setValue(new ArrayList<>(users));
+    }
+
+    public void addUsers(User user){
+        users.add(user);
+        this.setValue(users);
     }
 
     public void setFilter(String filter){

@@ -10,8 +10,8 @@ public class UserDiffCallBack extends DiffUtil.Callback {
 
 
     public UserDiffCallBack(List<User> oldList, List<User> newList){
-        oldList=oldList;
-        newList=newList;
+        this.oldList=oldList;
+       this.newList=newList;
     }
 
     @Override

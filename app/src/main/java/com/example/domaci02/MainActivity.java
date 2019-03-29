@@ -2,6 +2,8 @@ package com.example.domaci02;
 
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private UserAdapter userAdapter;
     private Button btn_remove;
     private EditText et_filter;
+    private String filter;
 
 
 
@@ -47,8 +50,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFilter() {
-        String filter = et_filter.getText().toString();
-        mainViewModel.setFilter(filter);
+
+         et_filter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filter = et_filter.getText().toString();
+                mainViewModel.setFilter(filter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
 
     private void initViewModels() {
